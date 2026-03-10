@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Allure | Team Portal</title>
+    <style>
+        .admin-container { max-width: 1100px; margin: 40px auto; padding: 20px; text-align: center; }
+        .member-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .member-card {
+            background: rgba(255, 255, 255, 0.4) !important;
+            border-top: 4px solid #79d2c9;
+            text-align: left;
+            padding: 25px;
+        }
+        .role { font-size: 0.75rem; color: #eb64a0; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px; display: block; }
+        .fluff-text { font-size: 0.85rem; color: #555; line-height: 1.5; margin-top: 10px; font-style: italic; }
+        .status-badge { font-size: 0.7rem; background: rgba(121, 210, 201, 0.2); color: #2d7a72; padding: 2px 8px; border-radius: 10px; float: right; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="ap.png" alt="Allure"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pg_1.html">About</a></li>
+            <li><a href="pg_2.html">Products</a></li>
+            <li><a href="pg_3.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="animate-page admin-container">
+        <div class="card" style="background: rgba(255,255,255,0.7) !important; border: none;">
+            <h1 style="letter-spacing: 8px; font-weight: 200;">TEAM PORTAL</h1>
+            <p style="margin-top: 10px; color: #777; font-size: 0.9rem;">Internal Enterprise Resource Planning & Coordination</p>
+
+            <div class="member-grid">
+                <div class="card member-card" style="border-top-color: #222;">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Group Leader</span>
+                    <h3>Otonye Oruene</h3>
+                    <p class="fluff-text">Driving the overarching strategic vision and ensuring cross-departmental alignment for the Allure brand launch.</p>
+                </div>
+
+                <div class="card member-card">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Creative Lead</span>
+                    <h3>Nicole Olaosebikan</h3>
+                    <p class="fluff-text">Curating the visual identity and aesthetic touchpoints to maintain a premium market position.</p>
+                </div>
+
+                <div class="card member-card">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Product Strategist</span>
+                    <h3>Fadl Obakoya</h3>
+                    <p class="fluff-text">Optimizing product selection and ensuring the inventory meets high-end enterprise quality standards.</p>
+                </div>
+
+                <div class="card member-card">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Market Analyst</span>
+                    <h3>Ifeloluwa Ogbede</h3>
+                    <p class="fluff-text">Analyzing consumer trends and demographic data to maximize brand penetration and style influence.</p>
+                </div>
+
+                <div class="card member-card">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Systems Architect</span>
+                    <h3>Michael Babafemi</h3>
+                    <p class="fluff-text">Executing technical deployment and maintaining the digital infrastructure of the Allure ecosystem.</p>
+                </div>
+
+                <div class="card member-card">
+                    <span class="status-badge">Active</span>
+                    <span class="role">Operations Manager</span>
+                    <h3>Oluwaferanmi Ogundare</h3>
+                    <p class="fluff-text">Managing backend logistics and operational flow to ensure a seamless customer journey.</p>
+                </div>
+            </div>
+
+            <a href="index.html" style="margin-top: 40px; display: inline-block; color: #222; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px;">SECURE LOGOUT</a>
+        </div>
+    </main>
+</body>
+</html>

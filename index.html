@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Allure | Home</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="ap.png" alt="Allure Logo"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pg_1.html">About</a></li>
+            <li><a href="pg_2.html">Products</a></li>
+            <li><a href="pg_3.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="animate-page">
+        <header class="hero">
+            <h1>Allure</h1>
+            <p>Own your style</p>
+        </header>
+    </main>
+    <div class="member-lock" onclick="checkAccess()">
+    <span>&#128274;</span> </div>
+
+<script>
+function checkAccess() {
+    let userPass = prompt("Allure Security - Enter Member Password:");
+    
+    // Updated specific password
+    const securePass = "alure12122323";
+
+    if (userPass === securePass) {
+        alert("Access Granted. Welcome to the Allure Enterprise Hub.");
+        window.location.href = "pg_admin.html";
+    } else {
+        alert("Access Denied. Unauthorized entry attempt logged.");
+    }
+}
+</script>
+</body>
+</html>
