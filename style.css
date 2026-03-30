@@ -1,4 +1,4 @@
-/* 2. GLOBAL STYLES & THE BLUE-PINK GRADIENT BACKGROUND */
+/* 1. GLOBAL & BACKGROUND */
 * {
     margin: 0;
     padding: 0;
@@ -9,21 +9,18 @@
 body {
     padding: 8px;
     color: #222;
-    min-height: 120vh;
+    min-height: 100vh;
     overflow-x: hidden;
-    
-    /* This replaces all white parts with a smooth Blue to Pink gradient */
     background: linear-gradient(135deg, #dcf0f7 0%, #fbe4ed 100%);
-    background-attachment: fixed; /* Keeps the gradient still while you scroll */
+    background-attachment: fixed;
 }
 
-/* 3. NAVIGATION (Frosted Glass) */
+/* 2. NAVIGATION */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 8%;
-    /* Very transparent white to let the background gradient show through */
     background: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -31,12 +28,11 @@ nav {
     top: 8px;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px; /* Added slight curve to match glass style */
 }
 
 .logo img { height: 45px; }
-
 .nav-links { list-style: none; display: flex; gap: 30px; }
-
 .nav-links a {
     text-decoration: none;
     color: #222;
@@ -44,126 +40,117 @@ nav {
     letter-spacing: 1px;
     transition: 0.3s;
 }
-
 .nav-links a:hover { color: #eb64a0; }
 
-/* 4. HERO SECTION (With Smooth Fade-Out) */
-.hero {
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* 3. COLLECTION HEADER */
+.collection-intro {
     text-align: center;
-    background: url('wimg.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 0 0 40px 40px; /* Softer corners */
-    margin-bottom: 50px;
-
-    /* This creates the 'bleed' effect into the rest of the page */
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    margin-top: 80px;
+    margin-bottom: -20px;
 }
-
-.hero h1 { 
-    font-size: 5rem; 
-    font-weight: 200; 
-    letter-spacing: 15px; 
+.collection-intro h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 8px;
     text-transform: uppercase;
-    color: #222;
-    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
 }
-
-.hero p { 
-    font-size: 1.2rem; 
-    color: #333; 
+.collection-intro p {
+    letter-spacing: 3px;
+    color: #777;
     margin-top: 10px;
-    letter-spacing: 4px;
 }
 
-/* 5. PRODUCT & INFO CARDS (Glassmorphism) */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 50px 8%; }
+/* 4. THE 2-PRODUCT FEATURED GRID */
+.featured-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Force 2 columns */
+    gap: 60px;
+    max-width: 1100px; /* Prevents stretching too wide */
+    margin: 80px auto; 
+    padding: 0 5%;
+}
 
-.product-card, .card { 
-    /* Semi-transparent so the blue/pink background bleeds through slightly */
+.product-card { 
     background: rgba(255, 255, 255, 0.4) !important;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 30px; /* More padding for luxury feel */
     text-align: center; 
-    transition: 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .product-card:hover { 
-    transform: translateY(-10px); 
+    transform: translateY(-15px); 
     background: rgba(255, 255, 255, 0.6) !important; 
 }
 
+/* 5. IMAGE HANDLING */
 .img-box {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 450px; /* Made taller for 2-item layout */
     overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
-.img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-.img-box .back-img { position: absolute; top: 0; left: 0; opacity: 0; }
-.product-card:hover .back-img { opacity: 1; }
-.product-card:hover .front-img { opacity: 0; }
+.img-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.8s ease; 
+}
 
-/* 6. ANIMATIONS & FOOTER */
+/* Flip Effect Logic */
+.img-box .back-img { position: absolute; top: 0; left: 0; opacity: 0; }
+.product-card:hover .back-img { opacity: 1; transform: scale(1.05); }
+.product-card:hover .front-img { opacity: 0; transform: scale(1.05); }
+
+/* 6. PRODUCT TEXT */
+.product-info h3 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+.price {
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 8px;
+}
+
+/* 7. UI ELEMENTS */
+.support-bubble {
+    position: fixed; bottom: 30px; right: 30px;
+    background: linear-gradient(45deg, #79d2c9, #eb64a0);
+    color: #fff; width: 60px; height: 60px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.15); z-index: 10001;
+}
+
+.member-lock {
+    position: fixed; bottom: 30px; left: 30px;
+    width: 45px; height: 45px; background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; cursor: pointer; transition: 0.3s; z-index: 10001;
+}
+
+/* 8. ANIMATION */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.animate-page { animation: fadeUp 1.2s ease-out forwards; }
 
-.animate-page { animation: fadeUp 1s ease-out forwards; }
-
-.content-section { padding: 80px 8%; }
-
-.support-bubble {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(45deg, #79d2c9, #eb64a0);
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    z-index: 10001;
-}
-/* Member Lock Styling */
-.member-lock {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* Opposite side of the support bubble */
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 18px;
-    transition: 0.3s;
-    z-index: 10001;
-}
-
-.member-lock:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(1.1);
+/* 9. MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .featured-dual {
+        grid-template-columns: 1fr; /* Stacks on mobile */
+        gap: 30px;
+    }
+    .img-box { height: 400px; }
 }
