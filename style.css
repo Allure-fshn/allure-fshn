@@ -119,3 +119,11 @@ nav {
     border-radius: 50%; display: flex; justify-content: center;
     align-items: center; cursor: pointer; z-index: 10001;
 }
+
+/* Special class to hide the background image */
+.no-img {
+    background: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    height: 50vh; /* Makes the header a bit shorter since there's no photo */
+}
