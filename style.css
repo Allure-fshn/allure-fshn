@@ -190,3 +190,32 @@ nav {
     line-height: 1.6;
     font-size: 0.95rem;
 }
+
+
+/* --- MOBILE FIX: STOPS THE SQUISH --- */
+@media (max-width: 768px) {
+    /* Stack the products vertically */
+    .exclusive-layout .featured-dual {
+        grid-template-columns: 1fr !important; 
+        gap: 30px;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    /* Shrink the image height so you don't have to scroll forever */
+    .exclusive-layout .img-box {
+        height: 350px !important;
+    }
+
+    /* Shrink the big 'Allure' text so it doesn't wrap weirdly */
+    .hero h1 {
+        font-size: 3rem !important;
+        letter-spacing: 8px;
+    }
+
+    /* Make the sidebar take up more screen on mobile */
+    .product-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
