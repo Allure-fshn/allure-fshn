@@ -18,29 +18,27 @@
         </ul>
     </nav>
 
-    <main class="animate-page">
-        <header class="hero">
-            <h1>Allure</h1>
-            <p>Own your style</p>
-        </header>
-    </main>
+    <header class="hero animate-page">
+        <h1>Allure</h1>
+        <p>Own your style</p>
+    </header>
+
     <div class="member-lock" onclick="checkAccess()">
-    <span>&#128274;</span> </div>
+        <span>&#128274;</span>
+    </div>
 
-<script>
-function checkAccess() {
-    let userPass = prompt("Allure Security - Enter Member Password:");
-    
-    // Updated specific password
-    const securePass = "alure12122323";
+    <script>
+    function checkAccess() {
+        let userPass = prompt("Allure Security - Enter Member Password:");
+        const securePass = "alure12122323";
 
-    if (userPass === securePass) {
-        alert("Access Granted. Welcome to the Allure Enterprise Hub.");
-        window.location.href = "pg_admin.html";
-    } else {
-        alert("Access Denied. Unauthorized entry attempt logged.");
+        if (userPass === securePass) {
+            alert("Access Granted. Welcome to the Allure Enterprise Hub.");
+            window.location.href = "pg_admin.html";
+        } else {
+            alert("Access Denied. Unauthorized entry attempt logged.");
+        }
     }
-}
-</script>
+    </script>
 </body>
 </html>
