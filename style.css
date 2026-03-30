@@ -154,3 +154,58 @@ nav {
     }
     .img-box { height: 400px; }
 }
+
+
+
+
+
+/* --- PRODUCT PAGE ONLY: BIG & CENTRALIZED LAYOUT --- */
+
+/* Force 2 big columns and center them */
+.exclusive-layout .featured-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    max-width: 1100px;
+    margin: 100px auto; 
+    padding: 0 40px;
+}
+
+/* Make the cards feel premium and large */
+.exclusive-layout .product-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.4) !important;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+}
+
+/* Make the images tall and high-fashion */
+.exclusive-layout .img-box {
+    height: 550px; 
+    border-radius: 15px;
+}
+
+/* Product Text styling */
+.exclusive-layout .product-info h3 {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.exclusive-layout .price {
+    font-size: 1.3rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Mobile Fix: Stacks them back to 1 column so it doesn't break on phones */
+@media (max-width: 850px) {
+    .exclusive-layout .featured-dual {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .exclusive-layout .img-box {
+        height: 450px;
+    }
+}
