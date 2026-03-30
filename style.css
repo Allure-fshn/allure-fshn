@@ -1,4 +1,4 @@
-/* 1. GLOBAL & BACKGROUND */
+/* 1. GLOBAL STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,6 @@ body {
     padding: 8px;
     color: #222;
     min-height: 100vh;
-    overflow-x: hidden;
     background: linear-gradient(135deg, #dcf0f7 0%, #fbe4ed 100%);
     background-attachment: fixed;
 }
@@ -28,7 +27,7 @@ nav {
     top: 8px;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px; /* Added slight curve to match glass style */
+    border-radius: 15px;
 }
 
 .logo img { height: 45px; }
@@ -37,182 +36,11 @@ nav {
     text-decoration: none;
     color: #222;
     font-weight: 500;
-    letter-spacing: 1px;
     transition: 0.3s;
 }
 .nav-links a:hover { color: #eb64a0; }
 
-/* 3. COLLECTION HEADER */
-.collection-intro {
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: -20px;
-}
-.collection-intro h2 {
-    font-size: 2.5rem;
-    font-weight: 200;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-}
-.collection-intro p {
-    letter-spacing: 3px;
-    color: #777;
-    margin-top: 10px;
-}
-
-/* 4. THE 2-PRODUCT FEATURED GRID */
-.featured-dual {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Force 2 columns */
-    gap: 60px;
-    max-width: 1100px; /* Prevents stretching too wide */
-    margin: 80px auto; 
-    padding: 0 5%;
-}
-
-.product-card { 
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 30px; /* More padding for luxury feel */
-    text-align: center; 
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-.product-card:hover { 
-    transform: translateY(-15px); 
-    background: rgba(255, 255, 255, 0.6) !important; 
-}
-
-/* 5. IMAGE HANDLING */
-.img-box {
-    position: relative;
-    width: 100%;
-    height: 450px; /* Made taller for 2-item layout */
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.img-box img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: 0.8s ease; 
-}
-
-/* Flip Effect Logic */
-.img-box .back-img { position: absolute; top: 0; left: 0; opacity: 0; }
-.product-card:hover .back-img { opacity: 1; transform: scale(1.05); }
-.product-card:hover .front-img { opacity: 0; transform: scale(1.05); }
-
-/* 6. PRODUCT TEXT */
-.product-info h3 {
-    margin-top: 15px;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-}
-.price {
-    color: #555;
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-top: 8px;
-}
-
-/* 7. UI ELEMENTS */
-.support-bubble {
-    position: fixed; bottom: 30px; right: 30px;
-    background: linear-gradient(45deg, #79d2c9, #eb64a0);
-    color: #fff; width: 60px; height: 60px; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.15); z-index: 10001;
-}
-
-.member-lock {
-    position: fixed; bottom: 30px; left: 30px;
-    width: 45px; height: 45px; background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%; display: flex; justify-content: center;
-    align-items: center; cursor: pointer; transition: 0.3s; z-index: 10001;
-}
-
-/* 8. ANIMATION */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.animate-page { animation: fadeUp 1.2s ease-out forwards; }
-
-/* 9. MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-    .featured-dual {
-        grid-template-columns: 1fr; /* Stacks on mobile */
-        gap: 30px;
-    }
-    .img-box { height: 400px; }
-}
-
-
-
-
-
-/* --- PRODUCT PAGE ONLY: BIG & CENTRALIZED LAYOUT --- */
-
-/* Force 2 big columns and center them */
-.exclusive-layout .featured-dual {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 80px; 
-    max-width: 1100px;
-    margin: 100px auto; 
-    padding: 0 40px;
-}
-
-/* Make the cards feel premium and large */
-.exclusive-layout .product-card {
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.4) !important;
-    border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-}
-
-/* Make the images tall and high-fashion */
-.exclusive-layout .img-box {
-    height: 550px; 
-    border-radius: 15px;
-}
-
-/* Product Text styling */
-.exclusive-layout .product-info h3 {
-    font-size: 1.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 30px;
-}
-
-.exclusive-layout .price {
-    font-size: 1.3rem;
-    color: #777;
-    margin-top: 10px;
-}
-
-/* Mobile Fix: Stacks them back to 1 column so it doesn't break on phones */
-@media (max-width: 850px) {
-    .exclusive-layout .featured-dual {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .exclusive-layout .img-box {
-        height: 450px;
-    }
-}
-
-
-
-/* --- HERO SECTION STYLES --- */
+/* 3. HERO SECTION (Fixes the "Messed Up" Home/About Page) */
 .hero {
     height: 85vh;
     display: flex;
@@ -223,26 +51,71 @@ nav {
     background: url('wimg.png');
     background-size: cover;
     background-position: center;
-    border-radius: 0 0 40px 40px; 
+    border-radius: 0 0 40px 40px;
     margin-bottom: 50px;
-
-    /* The bleed effect */
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 .hero h1 { 
     font-size: 5rem; 
-    font-weight: 200; 
     letter-spacing: 15px; 
     text-transform: uppercase;
-    color: #222;
     text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
 }
 
 .hero p { 
     font-size: 1.2rem; 
-    color: #333; 
-    margin-top: 10px;
     letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* 4. PRODUCT CARDS (Base Glassmorphism) */
+.product-card { 
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center; 
+    transition: 0.4s ease;
+}
+
+.img-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+.img-box .back-img { position: absolute; top: 0; left: 0; opacity: 0; }
+.product-card:hover .back-img { opacity: 1; }
+.product-card:hover .front-img { opacity: 0; }
+
+/* 5. EXCLUSIVE 2-PRODUCT LAYOUT (Only for pg_2.html) */
+.exclusive-layout .featured-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 5%;
+}
+
+.exclusive-layout .img-box { height: 500px; }
+
+/* 6. UTILITIES & ANIMATIONS */
+.animate-page { animation: fadeUp 1s ease-out forwards; }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.member-lock {
+    position: fixed; bottom: 30px; left: 30px;
+    width: 45px; height: 45px; background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; cursor: pointer; z-index: 10001;
 }
