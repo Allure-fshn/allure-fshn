@@ -21,7 +21,7 @@
     <main class="animate-page exclusive-layout">
         <div class="product-grid featured-dual">
             
-            <div class="product-card" onclick="openSidebar('Signature T-Shirt', '$70', 'shirt-front.jpg', 'Crafted from ultra-soft premium cotton, this signature piece represents the pinnacle of Allure minimalist design. Features a tailored fit and durable stitching.')">
+            <div class="product-card" onclick="showProduct('Signature T-Shirt', '$70', 'shirt-front.jpg', 'Premium cotton blend with a tailored fit. Designed for lasting comfort.')">
                 <div class="img-box">
                     <img src="shirt-front.jpg" alt="T-Shirt Front" class="front-img">
                     <img src="shirt-back.jpg" alt="T-Shirt Back" class="back-img">
@@ -30,7 +30,7 @@
                 <p style="color: #777;">$70</p>
             </div>
 
-            <div class="product-card" onclick="openSidebar('Allure Essence', '$70', 'perfume.jpg', 'A sophisticated blend of floral and woody notes. Allure Essence is designed for the modern individual who values elegance and a lasting impression.')">
+            <div class="product-card" onclick="showProduct('Allure Essence', '$70', 'perfume.jpg', 'A luxury fragrance featuring deep floral notes and a woody finish.')">
                 <div class="img-box">
                     <img src="perfume.jpg" alt="Perfume">
                 </div>
@@ -42,12 +42,12 @@
     </main>
 
     <div id="productSidebar" class="product-sidebar">
-        <div class="sidebar-close" onclick="closeSidebar()">&times;</div>
+        <span class="sidebar-close" onclick="closeSidebar()">&times;</span>
         <img id="sideImg" src="" class="sidebar-img">
         <div class="sidebar-content">
-            <h2 id="sideTitle">Product Name</h2>
-            <p id="sidePrice" style="font-weight: bold; margin-bottom: 15px;"></p>
-            <p id="sideDesc">Product description goes here.</p>
+            <h2 id="sideTitle" style="font-weight: 200; margin-bottom: 10px;">Product Name</h2>
+            <p id="sidePrice" style="font-weight: bold; color: #eb64a0; margin-bottom: 15px;">$0.00</p>
+            <p id="sideDesc" style="color: #555; line-height: 1.6;">Description goes here.</p>
         </div>
     </div>
 
@@ -56,12 +56,14 @@
     </div>
     
     <script>
-    // Pop-up Logic
-    function openSidebar(title, price, img, desc) {
-        document.getElementById('sideTitle').innerText = title;
+    // This is the specific function to open the sidebar
+    function showProduct(name, price, image, description) {
+        document.getElementById('sideTitle').innerText = name;
         document.getElementById('sidePrice').innerText = price;
-        document.getElementById('sideImg').src = img;
-        document.getElementById('sideDesc').innerText = desc;
+        document.getElementById('sideImg').src = image;
+        document.getElementById('sideDesc').innerText = description;
+        
+        // This adds the 'active' class which slides it in
         document.getElementById('productSidebar').classList.add('active');
     }
 
@@ -69,12 +71,19 @@
         document.getElementById('productSidebar').classList.remove('active');
     }
 
-    // Lock Logic
+    // Password Lock
     function checkAccess() {
-        let userPass = prompt("Allure Security - Enter Member Password:");
-        const securePass = "alure12122323";
-        if (userPass === securePass) {
+        let userPass = prompt("Allure Security:");
+        if (userPass === "alure12122323") {
             window.location.href = "pg_admin.html";
+        }
+    }
+
+    // Close sidebar if user clicks outside of it
+    window.onclick = function(event) {
+        let sidebar = document.getElementById('productSidebar');
+        if (event.target == document.querySelector('.exclusive-layout')) {
+            closeSidebar();
         }
     }
     </script>
