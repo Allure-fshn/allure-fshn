@@ -21,7 +21,7 @@
     <main class="animate-page exclusive-layout">
         <div class="product-grid featured-dual">
             
-            <div class="product-card">
+            <div class="product-card" onclick="openSidebar('Signature T-Shirt', '$70', 'shirt-front.jpg', 'Crafted from ultra-soft premium cotton, this signature piece represents the pinnacle of Allure minimalist design. Features a tailored fit and durable stitching.')">
                 <div class="img-box">
                     <img src="shirt-front.jpg" alt="T-Shirt Front" class="front-img">
                     <img src="shirt-back.jpg" alt="T-Shirt Back" class="back-img">
@@ -30,7 +30,7 @@
                 <p style="color: #777;">$70</p>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" onclick="openSidebar('Allure Essence', '$70', 'perfume.jpg', 'A sophisticated blend of floral and woody notes. Allure Essence is designed for the modern individual who values elegance and a lasting impression.')">
                 <div class="img-box">
                     <img src="perfume.jpg" alt="Perfume">
                 </div>
@@ -41,11 +41,35 @@
         </div>
     </main>
 
+    <div id="productSidebar" class="product-sidebar">
+        <div class="sidebar-close" onclick="closeSidebar()">&times;</div>
+        <img id="sideImg" src="" class="sidebar-img">
+        <div class="sidebar-content">
+            <h2 id="sideTitle">Product Name</h2>
+            <p id="sidePrice" style="font-weight: bold; margin-bottom: 15px;"></p>
+            <p id="sideDesc">Product description goes here.</p>
+        </div>
+    </div>
+
     <div class="member-lock" onclick="checkAccess()">
         <span>&#128274;</span>
     </div>
     
     <script>
+    // Pop-up Logic
+    function openSidebar(title, price, img, desc) {
+        document.getElementById('sideTitle').innerText = title;
+        document.getElementById('sidePrice').innerText = price;
+        document.getElementById('sideImg').src = img;
+        document.getElementById('sideDesc').innerText = desc;
+        document.getElementById('productSidebar').classList.add('active');
+    }
+
+    function closeSidebar() {
+        document.getElementById('productSidebar').classList.remove('active');
+    }
+
+    // Lock Logic
     function checkAccess() {
         let userPass = prompt("Allure Security - Enter Member Password:");
         const securePass = "alure12122323";
