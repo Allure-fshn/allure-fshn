@@ -209,3 +209,40 @@ nav {
         height: 450px;
     }
 }
+
+
+
+/* --- HERO SECTION STYLES --- */
+.hero {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('wimg.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 40px 40px; 
+    margin-bottom: 50px;
+
+    /* The bleed effect */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.hero h1 { 
+    font-size: 5rem; 
+    font-weight: 200; 
+    letter-spacing: 15px; 
+    text-transform: uppercase;
+    color: #222;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
+}
+
+.hero p { 
+    font-size: 1.2rem; 
+    color: #333; 
+    margin-top: 10px;
+    letter-spacing: 4px;
+}
