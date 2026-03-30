@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Allure | Exclusive Collection</title>
+    <title>Allure | Products</title>
 </head>
 <body>
     <nav>
@@ -26,26 +26,33 @@
                     <img src="shirt-front.jpg" alt="T-Shirt Front" class="front-img">
                     <img src="shirt-back.jpg" alt="T-Shirt Back" class="back-img">
                 </div>
-                <div class="product-info">
-                    <h3>Signature T-Shirt</h3>
-                    <p class="price">$70</p>
-                </div>
+                <h3 style="margin-top: 15px;">Signature T-Shirt</h3>
+                <p style="color: #777;">$70</p>
             </div>
 
             <div class="product-card">
                 <div class="img-box">
                     <img src="perfume.jpg" alt="Perfume">
                 </div>
-                <div class="product-info">
-                    <h3>Allure Essence</h3>
-                    <p class="price">$70</p>
-                </div>
+                <h3 style="margin-top: 15px;">Allure Essence</h3>
+                <p style="color: #777;">$70</p>
             </div>
 
         </div>
     </main>
 
-    <a href="#" class="support-bubble">?</a>
-    <div class="member-lock">🔒</div>
+    <div class="member-lock" onclick="checkAccess()">
+        <span>&#128274;</span>
+    </div>
+    
+    <script>
+    function checkAccess() {
+        let userPass = prompt("Allure Security - Enter Member Password:");
+        const securePass = "alure12122323";
+        if (userPass === securePass) {
+            window.location.href = "pg_admin.html";
+        }
+    }
+    </script>
 </body>
 </html>
