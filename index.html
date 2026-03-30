@@ -31,12 +31,11 @@
     function checkAccess() {
         let userPass = prompt("Allure Security - Enter Member Password:");
         const securePass = "alure12122323";
-
         if (userPass === securePass) {
-            alert("Access Granted. Welcome to the Allure Enterprise Hub.");
+            alert("Access Granted.");
             window.location.href = "pg_admin.html";
-        } else {
-            alert("Access Denied. Unauthorized entry attempt logged.");
+        } else if (userPass !== null) {
+            alert("Access Denied.");
         }
     }
     </script>
